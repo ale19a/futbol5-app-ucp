@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var Login = require('../negocio/Login.js');
-var CanchaNegocio = require('../negocio/CanchaNegocio.js');
+var Login = require('../futbol5/Login.js');
+var CanchaNegocio = require('../futbol5/CanchaNegocio.js');
+var MostrameTostring = require('../futbol5/MostrameTostring.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Futbol 5' });
 });
 
 /* GET Login */
@@ -23,13 +24,29 @@ router.post('/login', function(req, res) {
 	//Instanciando Login
 	var login = new Login();
 	var esValido = login.validar(usuario,password);
-	console.log(esValido);
+
 	if (esValido) {
-		res.render('index');
-		
+		res.render('Entidad');
 	}else{
 		res.render('login', { mensajeError: 'Datos incorrectos. Verifique.' });
 	};
+ 
+});
+
+
+/* POST Canchas */
+router.get('/Canchas', function(req, res) {
+	//var canchaArray=[];
+	var cn = new CanchaNegocio();
+   res.render('canchas',{canchas:cn.listado()});
+	
+ 
+});
+
+/* POST ToString*/
+router.get('/ToString', function(req, res) {
+var cn = new MostrameTostring();
+   res.render('varios',{varios:cn.listado()});
  
 });
 

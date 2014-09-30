@@ -2,10 +2,10 @@ extends layout
 
 block content
     div(class="container")
-        form(class="form-signin",role="form")
+        form(class="form-signin",role="form",method="post",action="")
             <h2 class="form-signin-heading">Inicie sesión</h2>
-            <input type="email" class="form-control" placeholder="Correo electrónico" required autofocus>
-            <input type="password" class="form-control" placeholder="Contraseña" required>
+            <input type="text" name="usuario" class="form-control" placeholder="Nombre Usuario" required autofocus>
+            <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
             <label class="checkbox">
             <input type="checkbox" value="remember-me"> Recordarme
             </label>

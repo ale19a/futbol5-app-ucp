@@ -1,0 +1,16 @@
+﻿extends layout
+
+block content
+  h1 Canchas
+  form(action='/entidades',method='get')
+     input(id='q',type='text',value='#{query}',placeholder='',name='q')
+     input(type='submit',value='Buscar')
+  
+  ul
+    each e, index in canchas
+      li=e.getNombre()
+          
+        
+
+
+  a(href="/") Volver al principal
