@@ -18,4 +18,26 @@ router.get('/', function(req, res) {
 
 
 
+/* POST Buscador */
+router.get('/buscar', function(req, res) {
+
+	
+	var listafilt = [];
+	var en = new CanchaNegocio();
+
+	//Buscar si viene el parametro "q" por querystring, sino listado completo
+	if (req.query.q!=null && req.query.q.length) {
+		listafilt = en.buscar(req.query.q);
+	}else{
+		listafilt = en.listado();
+	}
+
+  res.render('canchas', 
+  			{canchas:listafilt,
+  			 mensaje:'Demo de Mensaje',
+  			 query:req.query.q});
+});
+
+
+
 module.exports = router;
