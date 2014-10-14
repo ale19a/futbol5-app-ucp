@@ -1,16 +1,17 @@
 ﻿extends layout
 
 block content
-  h1 Canchas
-  form(action='',method='get')
-     input(id='q',type='text',value='#{query}',placeholder='',name='q')
-     input(type='submit',value='Buscar')
-  
-  ul
-    each e, index in canchas
-      li=e.getNombre()
-          
-        
-
-
-  a(href="/") Volver al principal
+  div(data-demo-html="true")
+      form(action='',method='get')
+         input(id='q',type='text',value='#{query}',placeholder='',name='q')
+         input(type='submit',value='Buscar')
+      
+      ul(data-role="listview", data-filter="true", data-filter-placeholder="Buscar canchas...", data-inset="true")
+        each e, index in canchas
+          li
+             a=e.getNombre()
+              
+            
+      
+      
+      a(href="/") Volver al principal
