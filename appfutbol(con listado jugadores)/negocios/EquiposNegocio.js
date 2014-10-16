@@ -1,30 +1,31 @@
-var Jugador = require('../entidades/Jugador.js');
+var Equipo = require('../entidades/Equipo.js');
 
-var JugadoresNegocio=(function(){
+var EquiposNegocio=(function(){
     var self=Object.create({});
 
      //var j = require('../entidades/Jugador.js');
 
      
-      var jugadorArray = [];
+      var equipoArray = [];
       self.listado=function(){
         
 
-        var j = null;
-        if (jugadorArray.length){
-          return jugadorArray;
+        var e = null;
+        if (equipoArray.length){
+          return equipoArray;
 
         };
 
        for (var i = 1; i <= 100; i++){
-        j = new Jugador();
-        j.setNombre('Jugador: ' + i);
-        jugadorArray.push(j);
+        e = new Equipo();
+        e.setNombre('Equipo: ' + i);
+        equipoArray.push(e);
 
        };
 
-             return jugadorArray;
+             return equipoArray;
       }
+
 
 
       self.buscar = function(generico){
@@ -44,11 +45,11 @@ var JugadoresNegocio=(function(){
 
        //Retornando el array con las entidades filtradas
        return entidadesFiltradas;
-}
+} 
      
 
      return self;
 });
-module.exports=JugadoresNegocio;
+module.exports=EquiposNegocio;
 
 

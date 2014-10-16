@@ -4,8 +4,12 @@ var router = express.Router();
 var Login = require('../negocios/Login.js');
 var Entidad = require('../negocios/Entidad.js');
 var Equipo = require('../entidades/Equipo.js');
+var Cancha = require('../entidades/Cancha.js');
+var Jugador = require('../entidades/Jugador.js');
 var Polimorfismo = require('../negocios/Polimorfismo.js');
 var JugadoresNegocio = require('../negocios/JugadoresNegocio.js');
+var JugadoresNegocio = require('../negocios/CanchasNegocio.js');
+var JugadoresNegocio = require('../negocios/EquiposNegocio.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -40,6 +44,26 @@ router.get('/Jugadores', function(req, res) {
 	var jr = new JugadoresNegocio();
 
    res.render('jugadores', {jugadores: jr.listado()});
+	
+ 
+});
+
+
+/* GET Canchas */
+router.get('/Canchas', function(req, res) {
+	var can = new CanchasNegocio();
+
+   res.render('canchas', {canchas: can.listado()});
+	
+ 
+});
+
+
+/* GET Equipos */
+router.get('/Equipos', function(req, res) {
+	var equi = new EquiposNegocio();
+
+   res.render('equipos', {equipos: equi.listado()});
 	
  
 });
