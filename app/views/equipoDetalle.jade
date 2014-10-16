@@ -3,6 +3,8 @@ extends layout
 block content
 
      h1=equipo.getNombre()
-      
-      
+       
+       each e, index in equipo.getJugadores()
+          li
+             a=e.getNombre()
     

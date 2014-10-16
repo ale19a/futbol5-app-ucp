@@ -15,11 +15,11 @@ var EquipoNegocio=(function(){
 				  return lista;
 			};	  
 		   
-			for (i=0;i<10;i++){  
+			for (i=1;i<10;i++){  
 			   ent=new equipo();
 			   ent.setNombre('Equipo '+i);
 			   
-			   for (j=0;j<5;j++){
+			   for (j=1;j<5;j++){
 				   ju=new jugador();
 				   ju.setNombre('Jugador '+j);
 				   ent.getJugadores().push(ju);
@@ -58,7 +58,7 @@ var EquipoNegocio=(function(){
 			  var e=new equipo();
 			   e.setNombre('Equipo '+id);
 			   
-			   for (j=0;j<5;j++){
+			   for (j=1;j<5;j++){
 				   ju=new jugador();
 				   ju.setNombre('Jugador '+j);
 				   e.getJugadores().push(ju);
