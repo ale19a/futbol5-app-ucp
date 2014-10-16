@@ -9,12 +9,12 @@ var Equipo = (function(){
     self.setNombre=function (valor){
 		nombre=valor;
 	};
-	var listjug;
-	self.getListjug=function (){
-		return listjug;
+	var jugadores;
+	self.getJugadores=function (){
+		return jugadores;
 	};
-    self.setLidtjug=function (valor){
-		listjug=valor;
+    self.setJugadores=function (valor){
+		jugadores=valor;
 	};
 	
 	var califequip;
@@ -45,6 +45,9 @@ var Equipo = (function(){
 	self.toString=function(){
         return self.getNombre();
 	};
+	
+	self.setJugadores([]);
+	
 	return self;
 });
 module.exports = Equipo;

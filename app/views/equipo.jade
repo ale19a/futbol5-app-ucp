@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div(data-demo-html="true")
+      form(action='',method='get')
+         input(id='q',type='text',value='#{query}',placeholder='',name='q')
+         input(type='submit',value='Buscar')
+      
+      ul(data-role="listview", data-filter="true", data-filter-placeholder="Buscar equipos...", data-inset="true")
+        each e, index in equipo
+          li
+             a=e.getNombre()
+             
+            
+      
+      
+      a(href="/") Volver al principal

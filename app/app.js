@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var canchaRoute = require('./routes/canchaRoute');
+var equipoRoute = require('./routes/equipoRoute');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/cancha', canchaRoute);
+app.use('/equipo', equipoRoute);
 
 
 // catch 404 and forward to error handler
