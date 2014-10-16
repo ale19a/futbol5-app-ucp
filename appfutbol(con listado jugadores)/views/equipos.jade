@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Equipos
+  
+  
+
+  ul
+    each ent, index in equipos
+       li= ent.getNombre()
+         
+
+  p
+  p 
+  a(href="/") Volver al principal
