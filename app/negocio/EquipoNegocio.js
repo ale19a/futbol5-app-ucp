@@ -49,9 +49,28 @@ var EquipoNegocio=(function(){
 
 	     //Retornando el array con las entidades filtradas
 	     return entidadesFiltradas;
-    };	
-     return self;
-});
+        };	
+		
+		
+		self.obtener=function(id){
+		
+					  
+			  var e=new equipo();
+			   e.setNombre('Equipo '+id);
+			   
+			   for (j=0;j<5;j++){
+				   ju=new jugador();
+				   ju.setNombre('Jugador '+j);
+				   e.getJugadores().push(ju);
+			    };
+				return e;
+			
+		};
+     
+	 return self;
+
+	 });
+
 module.exports=EquipoNegocio;
 
 

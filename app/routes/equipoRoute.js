@@ -6,13 +6,26 @@ var EquipoNegocio = require('../negocio/EquipoNegocio.js');
 
 
 
-
 /* POST Equipo */
 router.get('/', function(req, res) {
 	
 	var eq = new EquipoNegocio();
    res.render('equipo',{equipo:eq.listaEquipo()});
 	
+ 
+});
+
+
+/* Detalle */
+
+router.get('/detalle', function(req, res) {
+	var equipo=null;
+	if (req.query.id != null && req.query.id.length) {
+		var en=new EquipoNegocio();
+		equipo=en.obtener(req.query.id);
+	}
+	res.render('equipoDetalle', 
+  			{equipo:equipo});
  
 });
 
