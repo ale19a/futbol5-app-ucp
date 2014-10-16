@@ -8,8 +8,8 @@ var Cancha = require('../entidades/Cancha.js');
 var Jugador = require('../entidades/Jugador.js');
 var Polimorfismo = require('../negocios/Polimorfismo.js');
 var JugadoresNegocio = require('../negocios/JugadoresNegocio.js');
-var JugadoresNegocio = require('../negocios/CanchasNegocio.js');
-var JugadoresNegocio = require('../negocios/EquiposNegocio.js');
+var CanchasNegocio = require('../negocios/CanchasNegocio.js');
+var EquiposNegocio = require('../negocios/EquiposNegocio.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -49,6 +49,27 @@ router.get('/Jugadores', function(req, res) {
 });
 
 
+/* POST Buscador Equipo */
+router.get('/buscar', function(req, res) {
+
+	
+	var listafilt = [];
+	var eq = new EquipoNegocio();
+
+	//Buscar si viene el parametro "q" por querystring, sino listado completo
+	if (req.query.q!=null && req.query.q.length) {
+		listafilt = en.buscar(req.query.q);
+	}else{
+		listafilt = en.listaEquipo();
+	}
+
+  res.render('equipo', 
+  			{equipo:listafilt,
+  			 mensaje:'Demo de Mensaje',
+  			 query:req.query.q});
+});
+
+
 /* GET Canchas */
 router.get('/Canchas', function(req, res) {
 	var can = new CanchasNegocio();
@@ -67,6 +88,9 @@ router.get('/Equipos', function(req, res) {
 	
  
 });
+
+
+
 
 /* GET Polimorfismo */
 router.get('/Polimorfismo', function(req, res) {
