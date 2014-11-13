@@ -39,5 +39,22 @@ router.get('/buscar', function(req, res) {
 });
 
 
+/* POST Detalle */
+router.get('/detalle', function(req, res) {
+
+	
+	var cancha = null;
+	var cn = new CanchaNegocio();
+
+	//Buscar si viene el parametro "q" por querystring, sino listado completo
+	if (req.query.id!=null && req.query.id.length) {
+		cancha = cn.obtener(req.query.id);
+	}
+
+  res.render('canchaDetalle',
+  			{cancha:cancha});
+});
+
+
 
 module.exports = router;

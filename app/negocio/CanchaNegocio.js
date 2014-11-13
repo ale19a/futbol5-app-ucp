@@ -1,4 +1,5 @@
 var Cancha = require('../entidades/cancha.js');
+var Equipo = require('../entidades/equipo.js');
 var CanchaNegocio=(function(){
     var self=Object.create({});
 
@@ -19,6 +20,23 @@ var CanchaNegocio=(function(){
                      return lista;
                 
          };
+		 
+		 
+		 self.obtener=function(id){
+		
+					  
+			  var c=new Cancha();
+			   c.setNombre('Cancha '+id);
+			   
+			   //for (j=1;j<5;j++){
+				//   can=new Cancha();
+				//   can.setNombre('Cancha '+j);
+				//   c.getCanchas().push(can);
+			   // };
+				return c;
+			
+		};
+		
         self.buscar = function(generico){
 	    var entidadesFiltradas = [];
 	     //Obtiene la lista de un metodo que devuelve todos los objetos sin filtrar
